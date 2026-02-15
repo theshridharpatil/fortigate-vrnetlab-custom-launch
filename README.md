@@ -10,7 +10,7 @@ I tweaked the Python launch script used by the container to allow for better fle
 
 ## Contents
 * `launch.py`: The modified Python launch script.
-* `fortigate_sample_config.txt`: A sample pre-configuration file to demonstrate the setup.
+* `fgt_init.cfg`: A sample pre-configuration file to demonstrate the setup.
 
 ## How to Use
 
