@@ -1,0 +1,27 @@
+name: fortilab
+
+topology:
+  nodes:
+    # --- The Firewall ---
+    fw1:
+      kind: fortinet_fortigate
+      image: vrnetlab/vr-fortios:6.2.6
+      env:
+        FORTIGATE_UUID: "12345678-1234-5678-90ab-cdef12345678"
+      binds:
+        - ./fgt_init.cfg:/config.txt
+
+    # --- Switch 1 ---
+    ceos1:
+      kind: arista_ceos
+      image: ceos:4.34
+      
+    # --- Switch 2 ---
+    ceos2:
+      kind: arista_ceos
+      image: ceos:4.34
+
+  links:
+    # Connect fw1 port2 -> ceos1 eth1
+    - endpoints: ["fw1:port2", "ceos1:eth1"]
+    - endpoints: ["fw1:port3", "ceos2:eth1"]
